@@ -1,6 +1,7 @@
 node_modules
 coverage.html
 .idea
+.env
 .DS_Store
 docs/agenda/*
 !docs/agenda/1.0.3/

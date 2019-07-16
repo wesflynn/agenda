@@ -3,11 +3,17 @@
 const delay = require('delay');
 const {MongoClient} = require('mongodb');
 const Agenda = require('..');
+require('dotenv').config();
 
 const mongoHost = process.env.MONGODB_HOST || 'localhost';
 const mongoPort = process.env.MONGODB_PORT || '27017';
-const agendaDatabase = 'agenda-test';
-const mongoCfg = 'mongodb://' + mongoHost + ':' + mongoPort + '/' + agendaDatabase;
+const mongoUser = process.env.MONGODB_USER;
+const mongoPass = process.env.MONGODB_PASS;
+const agendaDatabase = 'agendatest';
+let mongoCfg = `mongodb://${mongoHost}:${mongoPort}/${agendaDatabase}`;
+if (mongoUser && mongoPass) {
+  mongoCfg = `mongodb://${mongoUser}:${mongoPass}@${mongoHost}:${mongoPort}/${agendaDatabase}`;
+}
 
 // Create agenda instances
 let agenda = null;

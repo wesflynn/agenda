@@ -7,11 +7,11 @@
     "lib"
   ],
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
     "test": "npm run lint && npm run mocha",
-    "lint": "xo --verbose",
+    "lint": "xo --verbose --fix",
     "mocha": "mocha --reporter spec --timeout 8000 -b",
     "mocha-debug": "DEBUG=agenda:**,-agenda:internal:** mocha --reporter spec --timeout 8000 -b",
     "mocha-debug-internal": "DEBUG=agenda:internal:** mocha --reporter spec --timeout 8000 -b",
@@ -42,18 +42,19 @@
     "url": "https://github.com/agenda/agenda/issues"
   },
   "dependencies": {
-    "cron": "~1.8.0",
+    "cron": "~1.8.2",
     "date.js": "~0.3.3",
     "debug": "~4.1.1",
     "human-interval": "~1.0.0",
     "moment-timezone": "~0.5.27",
-    "mongodb": "~3.5.0"
+    "mongodb": "~3.5.3",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "blanket": "1.2.3",
     "coveralls": "3.0.9",
     "delay": "4.3.0",
-    "eslint-config-xo": "0.27.2",
+    "eslint-config-xo": "0.29.1",
     "eslint-plugin-ava": "10.2.0",
     "eslint-plugin-eslint-comments": "3.1.2",
     "eslint-plugin-import": "2.20.1",
